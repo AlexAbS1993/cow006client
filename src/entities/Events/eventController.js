@@ -1,4 +1,4 @@
-class EventController{
+export class EventController{
     constructor(eventName){
         this.listeners = []
         this.eventName = eventName
@@ -11,6 +11,10 @@ class EventController{
         if (!this.listeners.some(listener => listener.id === candidate.id)){
             this.listeners.push(candidate)
         }  
+    }
+    deleteListener(id){
+        this.listeners = this.listeners.filter(listener => listener.id !== id)
+        return
     }
     check(mX, mY, gl){
         let currentLayerCheck = gl.layers.length - 1

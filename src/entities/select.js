@@ -1,10 +1,11 @@
-class Select{
+export class Select{
     constructor(){
       this.selectedObject = null
       this.eventName = 'select'
     }
     addSelected(obj){
       this.selectedObject = obj
+      this.selectedObject.setSelected(true)
       return this
     }
     removeSelected(){

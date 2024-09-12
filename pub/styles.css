@@ -1,0 +1,88 @@
+*{
+    background-color: aqua;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.loginInput {
+    padding-left: 20px;
+    padding-right: 20px;
+    font-size: 16px;
+    background-color: rgb(233, 242, 242);
+    border: none;
+}
+
+.logInButton {
+    border: none;
+    cursor: pointer;
+    background-color: rgb(233, 242, 242);
+    transition: 0.3s all;
+}
+
+.logInButton:hover {
+    background-color: rgb(63, 142, 142);
+}
+
+.menuButtonLogined {
+    border: none;
+    background-color: rgb(233, 242, 242);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.menuButtonLogined:hover {
+    background-color: rgb(21, 91, 91);
+}
+
+.inAnimated {
+    opacity: 0;
+    transform: translate(-300px, 0px);
+    animation-name: inMenus;
+    animation-duration: 1s;
+    animation-delay: var(--animationDelay);
+}
+
+.outAnimated {
+    opacity: 1;
+    transform: translate(0px, 0px);
+    animation-name: outMenus;
+    animation-duration: 1s;
+    animation-delay: var(--animationDelay);
+}
+
+@keyframes inMenus {
+    0% {
+        transform: translate(-300px, 0px);
+        opacity: 0;
+    }
+    100% {
+        transform: translate(0px, 0px);
+        opacity: 1;
+    }
+}
+
+@keyframes outMenus {
+    0% {
+        transform: translate(0px, 0px);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(300px, 0px);
+        opacity: 0;
+    }
+}
+
+#copyButton {
+    background-color: rgba(220, 62, 62, 0.753);
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 16px;
+    transform: all 0.3s;
+    border: none;
+    cursor: pointer;
+}
+
+#copyButton:hover {
+    background-color: rgb(220, 62, 62);
+}

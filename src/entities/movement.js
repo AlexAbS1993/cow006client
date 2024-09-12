@@ -1,4 +1,4 @@
-class Movement{
+export class Movement{
     constructor(x, y, stepX, stepY){
         this.x = x
         this.y = y

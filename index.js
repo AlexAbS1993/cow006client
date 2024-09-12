@@ -1,18 +1,19 @@
 import express from 'express'
 import path from 'path'
 import url from 'url'
-import fs from 'fs'
-import {htmlInnerFn} from './jsFiles.js'
 import cors from 'cors'
+import env from 'dotenv'
+
+env.config({path: `.${process.env.NODE_ENV}.env`})
+
+let distName = process.env.MODE === "development" ? "/dev" : "/pub"
 
 const server = express()
 const __filename = url.fileURLToPath(import.meta.url);
 server.use(cors())
-server.use("/source",express.static(path.dirname(__filename) + '/src'))
+server.use("/source",express.static(path.dirname(__filename) + distName))
 server.get('/', (req, res) => {
-    let htmlInner = htmlInnerFn()
-    fs.writeFileSync(path.dirname(__filename) + '/src/index.html', htmlInner, {flag: 'w'})
-    res.sendFile(path.dirname(__filename) + '/src/index.html')
+    res.sendFile(path.dirname(__filename) + '/index.html')
 })
 server.get('/secret', (req, res) => {
     let str = `{
